@@ -26,6 +26,7 @@ class ContactsActivity : AppCompatActivity(), ContactsClickListener {
         setContentView(R.layout.activity_contacts)
 
         getContacts()
+        setupList()
     }
 
     private fun getContacts() {

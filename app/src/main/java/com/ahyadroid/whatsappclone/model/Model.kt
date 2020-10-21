@@ -15,3 +15,21 @@ data class Contact(
     val phone: String?
 )
 
+data class Chat(
+    val chatParticipants: ArrayList<String>
+)
+
+data class Message(
+    val sentBy: String? = "",
+    val message: String? = "",
+    val messageTime: Long? = 0
+)
+
+data class StatusListElement(
+    val userName: String?,
+    val userUrl: String?,
+    val status: String?,
+    val statusUrl: String?,
+    val statusTime: String?,
+)
+

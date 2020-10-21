@@ -9,8 +9,15 @@ val DATA_USER_STATUS = "status"
 val DATA_USER_STATUS_URL = "statusUrl"
 val DATA_USER_STATUS_TIME = "statusTime"
 
-val REQUEST_CODE_PHOTO = 924
+val REQUEST_CODE_PHOTO = 1924
 val DATA_IMAGES = "image"
 
 val PERMISSION_REQUEST_READ_CONTACT = 1923
 val REQUEST_NEW_CHATS = 1922
+
+val DATA_USERS_CHATS = "userChats"
+val DATA_CHATS = "Chats"
+val DATA_CHAT_PARTICIPANTS = "chatParticipants"
+
+val DATA_CHAT_MESSAGE = "message"
+val DATA_CHAT_MESSAGE_TIME = "messageTime"

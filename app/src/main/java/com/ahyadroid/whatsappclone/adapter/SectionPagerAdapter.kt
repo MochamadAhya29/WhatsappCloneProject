@@ -11,10 +11,10 @@ import com.ahyadroid.whatsappclone.fragment.StatusFragment
 
 class SectionPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
-    private val cameraFragment = CameraFragment()
-    private val chatsFragment = ChatsFragment()
-    private val statusFragment = StatusFragment()
-    private val panggilanFragment = CallFragment()
+    private var cameraFragment = CameraFragment()
+    private var chatsFragment = ChatsFragment()
+    private var statusFragment = StatusFragment()
+    private var panggilanFragment = CallFragment()
 
     override fun getItem(position: Int): Fragment {
         return when(position){
