@@ -3,18 +3,19 @@ package com.ahyadroid.whatsappclone.activities
 import android.content.Context
 import android.content.Intent
 import android.content.LocusId
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ahyadroid.whatsappclone.R
 import com.ahyadroid.whatsappclone.adapter.ConversationAdapter
 import com.ahyadroid.whatsappclone.model.Message
-import com.ahyadroid.whatsappclone.util.DATA_CHATS
-import com.ahyadroid.whatsappclone.util.DATA_CHAT_MESSAGE
-import com.ahyadroid.whatsappclone.util.DATA_CHAT_MESSAGE_TIME
-import com.ahyadroid.whatsappclone.util.populateImage
+import com.ahyadroid.whatsappclone.model.User
+import com.ahyadroid.whatsappclone.util.*
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentChange
@@ -122,5 +123,32 @@ class ConversationActivity : AppCompatActivity() {
             }
         }
 
+        firebaseDb.collection(DATA_USERS).document(userId!!).get()
+            .addOnSuccessListener {
+                val user = it.toObject(User::class.java)
+                phone = user?.phone
+            }
+            .addOnFailureListener { e ->
+                e.printStackTrace()
+                finish()
+            }
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.conversation_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.action_settings -> {
+                startActivity(Intent(this, ProfileActivity::class.java))
+            }
+            R.id.action_call -> {
+                startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phone")))
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

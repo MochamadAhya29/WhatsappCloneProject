@@ -6,16 +6,19 @@
         android:id="@+id/action_call"
         android:icon="@drawable/ic_call"
         app:showAsAction="always"
+        android:orderInCategory="100"
         android:title="Call" />
     <item
         android:id="@+id/action_file"
         android:icon="@drawable/ic_fileattach"
         app:showAsAction="always"
+        android:orderInCategory="100"
         android:title="File" />
 
     <item
         android:id="@+id/action_settings"
         app:showAsAction="always"
+        android:orderInCategory="100"
         android:icon="@drawable/ic_option"
         android:title="Settings" />
 

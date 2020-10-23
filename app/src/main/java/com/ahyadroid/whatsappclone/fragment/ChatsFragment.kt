@@ -72,12 +72,12 @@ class ChatsFragment : Fragment(), ChatsClickListener{
     }
 
     override fun onChatClicked(
-        chatId: String?,
+        name: String?,
         otherUserId: String?,
         chatsImageUrl: String?,
         chatsName: String?
     ) {
-       startActivity(ConversationActivity.newIntent(context, chatId, chatsImageUrl, otherUserId, chatsName))
+       startActivity(ConversationActivity.newIntent(context, name, chatsImageUrl, otherUserId, chatsName))
     }
 
     private fun refreshChats(){

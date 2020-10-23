@@ -1,5 +1,8 @@
 package com.ahyadroid.whatsappclone.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 data class User(
     val email: String? = "", // Model merupakan layer yang menunjuk pada objek dan
     val phone: String? = "", // data yang ada pada aplikasi
@@ -25,11 +28,11 @@ data class Message(
     val messageTime: Long? = 0
 )
 
+@Parcelize
 data class StatusListElement(
     val userName: String?,
     val userUrl: String?,
     val status: String?,
     val statusUrl: String?,
     val statusTime: String?,
-)
-
+) : Parcelable
